@@ -42,3 +42,21 @@ def top_students(students, limit=3):
     )
 
     return sorted_list[:limit]
+
+
+# function to update grade by index
+
+
+def update_grade(students, student_id, index, new_grade):
+    if student_id not in students:
+        raise ValueError("Student not found")
+
+    if new_grade < 0 or new_grade > 100:
+        raise ValueError("Invalid grade")
+
+    grades = students[student_id]["grades"]
+
+    if index < 0 or index >= len(grades):
+        raise ValueError("Invalid grade index")
+
+    grades[index] = new_grade
